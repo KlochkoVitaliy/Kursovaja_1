@@ -4,60 +4,60 @@ public class Employee {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
 
-    private String FIO;
-    private int Department;
-    private int Salary;
-    private static int Counter;
-    private int Id;
+    private String fullName;
+    private int department;
+    private int salary;
+    private static int counter;
+    private int id;
 
     //Getter`s
     public int getId() {
-        return Id;
+        return id;
     }
 
-    public String getFIO() {
-        return this.FIO;
+    public String getfullName() {
+        return this.fullName;
     }
 
     public int getDepartment() {
-        return this.Department;
+        return this.department;
     }
 
     public int getSalary() {
-        return this.Salary;
+        return this.salary;
     }
 
     // Setter's
 
     public void setId(int id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public void SetDepartment(int dept) {
-        this.Department = dept;
+        this.department = dept;
     }
 
     public void SetSalary(int sal) {
-        this.Salary = sal;
+        this.salary = sal;
     }
 
     public void raiseSalary(int byPersent) {
-        int raise = Salary * byPersent / 100;
-        Salary += raise;
+        int raise = salary * byPersent / 100;
+        salary += raise;
     }
 
 // Constructor
 
-    public Employee(String fio, int dept, int salary) {
-        FIO = fio;
-        Department = dept;
-        Salary = salary;
-        Id = ++Counter;
+    public Employee(String fio, int dept, int sal) {
+        fullName = fio;
+        department = dept;
+        salary = sal;
+        id = ++counter;
     }
 
     @Override
     public String toString() {
-        return  Id + ". " +"Ф.И.О. "+ ANSI_YELLOW+ FIO+ANSI_RESET + " Отдел №: " + Department + ANSI_GREEN+" Зарплата: "+ANSI_RESET + ANSI_RED+Salary+ANSI_RESET + " руб.";
+        return  id + ". " +"Ф.И.О. "+ ANSI_YELLOW+ fullName+ANSI_RESET + " Отдел №: " + department + ANSI_GREEN+" Зарплата: "+ANSI_RESET + ANSI_RED+salary+ANSI_RESET + " руб.";
     }
 
 }
