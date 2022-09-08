@@ -4,11 +4,11 @@ public class Main {
     public static final String ANSI_GREEN = "\u001B[32m";
 
     public static String resultFioFIO(Employee[] employee) {
-        double tmp_id = 0;
-        String tmp = employee[0].getFIO();
+        double tmpId = 0;
+        String tmp = employee[0].getfullName();
         for (int i = 1; i < employee.length; i++) {
-            tmp_id = employee[i].getId();
-            System.out.println(employee[i].getFIO());
+            tmpId = employee[i].getId();
+            System.out.println(employee[i].getfullName());
         }
         return tmp;
     }
@@ -37,27 +37,27 @@ public class Main {
     }
 
     public static int salaryMin(Employee[] employee) {
-        int tmp_id = 0;
+        int tmpId = 0;
         double tmp = employee[0].getSalary();
         for (int i = 1; i < employee.length; i++) {
             if (tmp > employee[i].getSalary()) {
-                tmp_id = employee[i].getId();
+                tmpId = employee[i].getId();
                 tmp = employee[i].getSalary();
             }
         }
-        return tmp_id;
+        return tmpId;
     }
 
     public static int salaryMax(Employee[] employee) {
-        int tmp_id = 0;
+        int tmpId = 0;
         int tmp = employee[0].getSalary();
         for (int i = 1; i < employee.length; i++) {
             if (tmp < employee[i].getSalary()) {
-                tmp_id = employee[i].getId();
+                tmpId = employee[i].getId();
                 tmp = employee[i].getSalary();
             }
         }
-        return tmp_id;
+        return tmpId;
     }
 
     public static int salaryAverage(Employee[] employee) {
