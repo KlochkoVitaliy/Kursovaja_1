@@ -37,7 +37,7 @@ public class Employee {
         this.department = dept;
     }
 
-    public void SetSalary(int sal) {
+    public void setSalary(int sal) {
         this.salary = sal;
     }
 
