@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Main {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -9,14 +11,15 @@ public class Main {
         for (int i = 1; i < employee.length; i++) {
             tmpId = employee[i].getId();
             System.out.println(employee[i].getfullName());
+
         }
         return tmp;
     }
 
-    public static int resultFio(Employee[] employee) {
+    public static Object resultFio(Employee[] employee) {
         for (int i = 0; i < employee.length; i++)
             System.out.println(employee[i].toString());
-        return 0;
+        return "";
     }
 
     public static String resultFioToString(Employee[] employee, int id) {
@@ -64,19 +67,69 @@ public class Main {
         return salarySum(employee) / employee.length;
     }
 
+    //GROOP MEDIUM
+
+//    public static int  increaseSalary( Employee[] employee) {
+//        int percent=5;
+//        for (int i = 1; i < employee.length; i++) {
+//            int currentSalary = employee[i].getSalary();
+//            employee[i].setSalary((currentSalary * (percent / 100)));
+//        }
+//        return increaseSalary(employee);
+//    }
+
+    //    public static int raiseSalary(Employee[]employee) {
+//        int byPersent = 5;
+//        int raise = employee[0].getSalary();
+//        for (int i = 0; i < employee.length; i++) {
+//            int raises = employee[i].getSalary() * byPersent / 100;
+//            raise += raises;
+//        }
+//        return raise;
+//    }
+//
+//    public static  int raiseSalary(Employee[] employee) {
+//        int persent =5;
+//        for (int i = 0; i < employee.length; i++) {
+//            int increment = employee[i].getSalary();
+//            increment+=(persent * employee[i].getSalary())/100;
+//            return increment;
+//        }
+//        return employee[0].getSalary();
+//    }
+
+//    public static int raiseSalary(Employee[]employee) {
+//        int percent = 5;
+//            int raise = 0;
+//            for (int i = 0; i < employee.length; i++) {
+//                    raise += employee[i].getSalary() * percent / 100;
+//                }
+//            return raise;
+//        }
+
+    public static Object raiseSalary(Employee[] employee) {
+        int percent = 5;
+       int raise = 0;
+        for (int i = 0; i < employee.length; i++) {
+            raise = employee[i].getSalary();
+            System.out.println((raise * percent / 100)+raise);
+        }
+        return "";
+    }
+
     public static void main(String[] args) {
         Employee[] employee = new Employee[10];
 
-        employee[0] = new Employee("Иван Иванович",EmployeeUtil.getRandomNo(1,5),EmployeeUtil.getRandomNo(100,50000));
-        employee[1] = new Employee("Иван Васильевич", EmployeeUtil.getRandomNo(1,5),EmployeeUtil.getRandomNo(100,50000));
-        employee[2] = new Employee("Василий Васильевич", EmployeeUtil.getRandomNo(1,5),EmployeeUtil.getRandomNo(100,50000));
-        employee[3] = new Employee("Вазген Васильевич", EmployeeUtil.getRandomNo(1,5),EmployeeUtil.getRandomNo(100,50000));
-        employee[4] = new Employee("Виктор Владленович", EmployeeUtil.getRandomNo(1,5),EmployeeUtil.getRandomNo(100,50000));
-        employee[5] = new Employee("Дарья Ивановна", EmployeeUtil.getRandomNo(1,5),EmployeeUtil.getRandomNo(100,50000));
-        employee[6] = new Employee("Сирафима Ильинишна", EmployeeUtil.getRandomNo(1,5),EmployeeUtil.getRandomNo(100,50000));
-        employee[7] = new Employee("Олеся Олеговна", EmployeeUtil.getRandomNo(1,5),EmployeeUtil.getRandomNo(100,50000));
-        employee[8] = new Employee("Давид Тания", EmployeeUtil.getRandomNo(1,5),EmployeeUtil.getRandomNo(100,50000));
-        employee[9] = new Employee("Конор Макгрегор", EmployeeUtil.getRandomNo(1,5),EmployeeUtil.getRandomNo(100,50000));
+        employee[0] = new Employee("Иван Иванович", EmployeeUtil.getRandomNo(1, 5), EmployeeUtil.getRandomNo(100, 50000));
+        employee[1] = new Employee("Иван Васильевич", EmployeeUtil.getRandomNo(1, 5), EmployeeUtil.getRandomNo(100, 50000));
+        employee[2] = new Employee("Василий Васильевич", EmployeeUtil.getRandomNo(1, 5), EmployeeUtil.getRandomNo(100, 50000));
+        employee[3] = new Employee("Вазген Васильевич", EmployeeUtil.getRandomNo(1, 5), EmployeeUtil.getRandomNo(100, 50000));
+        employee[4] = new Employee("Виктор Владленович", EmployeeUtil.getRandomNo(1, 5), EmployeeUtil.getRandomNo(100, 50000));
+        employee[5] = new Employee("Дарья Ивановна", EmployeeUtil.getRandomNo(1, 5), EmployeeUtil.getRandomNo(100, 50000));
+        employee[6] = new Employee("Сирафима Ильинишна", EmployeeUtil.getRandomNo(1, 5), EmployeeUtil.getRandomNo(100, 50000));
+        employee[7] = new Employee("Олеся Олеговна", EmployeeUtil.getRandomNo(1, 5), EmployeeUtil.getRandomNo(100, 50000));
+        employee[8] = new Employee("Давид Тания", EmployeeUtil.getRandomNo(1, 5), EmployeeUtil.getRandomNo(100, 50000));
+        employee[9] = new Employee("Конор Макгрегор", EmployeeUtil.getRandomNo(1, 5), EmployeeUtil.getRandomNo(100, 50000));
 
         System.out.println();
         //Task a
@@ -85,7 +138,7 @@ public class Main {
         System.out.println(resultFio(employee));
         System.out.println();
         //Task b
-        System.out.println(ANSI_GREEN + "Сумма затрат на зарплаты в месяц =" + ANSI_RESET + ANSI_RED + salarySum(employee) + ANSI_RESET+" руб.");
+        System.out.println(ANSI_GREEN + "Сумма затрат на зарплаты в месяц =" + ANSI_RESET + ANSI_RED + salarySum(employee) + ANSI_RESET + " руб.");
         System.out.println();
         //Task c
         System.out.println(ANSI_GREEN + "Сотрудник с MIN зарплатой -  " + ANSI_RESET + resultFioToString(employee, salaryMin(employee)));
@@ -94,13 +147,17 @@ public class Main {
         System.out.println(ANSI_GREEN + " Сотрудник с MAX зарплатой -   " + ANSI_RESET + resultFioToString(employee, salaryMax(employee)));
         System.out.println();
         //Task e
-        System.out.println(ANSI_GREEN + "Средняя зарплата в месяц = " + ANSI_RESET + ANSI_RED + salaryAverage(employee) + ANSI_RESET+" руб.");
+        System.out.println(ANSI_GREEN + "Средняя зарплата в месяц = " + ANSI_RESET + ANSI_RED + salaryAverage(employee) + ANSI_RESET + " руб.");
         System.out.println();
         //Task f
         System.out.println(ANSI_GREEN + "Ф.И.О. сотрудника:   " + ANSI_RESET);
         System.out.println(resultFioFIO(employee));
+
+        System.out.println();
+        //GROOP MEDIUM
+        System.out.println(ANSI_GREEN + "Индексирование зарплаты:   " + ANSI_RESET);
+        System.out.println(raiseSalary(employee));
     }
 }
-
 
 
